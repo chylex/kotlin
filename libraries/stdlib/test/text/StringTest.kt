@@ -291,7 +291,7 @@ class StringTest {
     @Test fun capitalize() {
         fun testCapitalize(expected: String, string: String) {
             assertEquals(expected, string.capitalize())
-            assertEquals(expected, string.capitalizeFirst())
+            assertEquals(expected, string.replaceFirstChar { it.uppercase() })
         }
         testCapitalize("A", "A")
         testCapitalize("A", "a")
@@ -302,7 +302,7 @@ class StringTest {
     @Test fun decapitalize() {
         fun testDecapitalize(expected: String, string: String) {
             assertEquals(expected, string.decapitalize())
-            assertEquals(expected, string.decapitalizeFirst())
+            assertEquals(expected, string.replaceFirstChar { it.lowercase() })
         }
         testDecapitalize("a", "A")
         testDecapitalize("a", "a")
@@ -1457,7 +1457,7 @@ class StringTest {
         assertEquals("[v-e-r-y-l-o-n-g-s-t-r-oops]", result2)
 
         val data3 = "a1/b".toList()
-        val result3 = data3.joinToString() { it.uppercase().toString() }
+        val result3 = data3.joinToString() { it.uppercaseChar().toString() }
         assertEquals("A, 1, /, B", result3)
     }
 

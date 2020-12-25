@@ -58,7 +58,7 @@ object KotlinPluginUtil {
 
     @JvmStatic
     fun isSnapshotVersion(): Boolean {
-        return "@snapshot@" == getPluginVersion()
+        return getPluginVersion().toLowerCase().contains("-snapshot-")
     }
 
     fun isDevVersion(): Boolean {

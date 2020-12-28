@@ -1,6 +1,7 @@
 package samples.text
 
 import samples.*
+import java.util.*
 import kotlin.test.*
 
 class Chars {
@@ -84,19 +85,39 @@ class Chars {
     @Sample
     fun uppercase() {
         val chars = listOf('a', 'ω', '1', 'ŉ', 'A', '+', 'ß')
-        val upperCaseChars = chars.map { it.uppercaseChar() }
-        assertPrints(upperCaseChars, "[A, Ω, 1, ŉ, A, +, ß]")
-        val upperCases = chars.map { it.uppercase() }
-        assertPrints(upperCases, "[A, Ω, 1, ʼN, A, +, SS]")
+        val uppercaseChar = chars.map { it.uppercaseChar() }
+        val uppercase = chars.map { it.uppercase() }
+        assertPrints(uppercaseChar, "[A, Ω, 1, ŉ, A, +, ß]")
+        assertPrints(uppercase, "[A, Ω, 1, ʼN, A, +, SS]")
+    }
+
+    @Sample
+    fun uppercaseLocale() {
+        val chars = listOf('a', '1', 'ŉ', 'A', '+', 'i')
+        val uppercase = chars.map { it.uppercase() }
+        val turkishLocale = Locale.forLanguageTag("tr")
+        val uppercaseTurkish = chars.map { it.uppercase(turkishLocale) }
+        assertPrints(uppercase, "[A, 1, ʼN, A, +, I]")
+        assertPrints(uppercaseTurkish, "[A, 1, ʼN, A, +, İ]")
     }
 
     @Sample
     fun lowercase() {
         val chars = listOf('A', 'Ω', '1', 'a', '+', 'İ')
-        val lowerCaseChars = chars.map { it.lowercaseChar() }
-        assertPrints(lowerCaseChars, "[a, ω, 1, a, +, i]")
-        val lowerCases = chars.map { it.lowercase() }
-        assertPrints(lowerCases, "[a, ω, 1, a, +, \u0069\u0307]")
+        val lowercaseChar = chars.map { it.lowercaseChar() }
+        val lowercase = chars.map { it.lowercase() }
+        assertPrints(lowercaseChar, "[a, ω, 1, a, +, i]")
+        assertPrints(lowercase, "[a, ω, 1, a, +, \u0069\u0307]")
+    }
+
+    @Sample
+    fun lowercaseLocale() {
+        val chars = listOf('A', 'Ω', '1', 'a', '+', 'İ')
+        val lowercase = chars.map { it.lowercase() }
+        val turkishLocale = Locale.forLanguageTag("tr")
+        val lowercaseTurkish = chars.map { it.lowercase(turkishLocale) }
+        assertPrints(lowercase, "[a, ω, 1, a, +, \u0069\u0307]")
+        assertPrints(lowercaseTurkish, "[a, ω, 1, a, +, i]")
     }
 
     @Sample
@@ -109,9 +130,21 @@ class Chars {
 
     @Sample
     fun titlecase() {
-        val chars = listOf('a', 'ǅ', '1', '+')
-        val titleCases = chars.map { it.titlecaseChar() }
-        assertPrints(titleCases, "[A, ǅ, 1, +]")
+        val chars = listOf('a', 'ǅ', '1', '+', 'ß')
+        val titlecaseChar = chars.map { it.titlecaseChar() }
+        val titlecase = chars.map { it.titlecase() }
+        assertPrints(titlecaseChar, "[A, ǅ, 1, +, ß]")
+        assertPrints(titlecase, "[A, ǅ, 1, +, Ss]")
+    }
+
+    @Sample
+    fun titlecaseLocale() {
+        val chars = listOf('a', 'ǅ', '1', '+', 'ß', 'i')
+        val titlecase = chars.map { it.titlecase() }
+        val turkishLocale = Locale.forLanguageTag("tr")
+        val titlecaseTurkish = chars.map { it.titlecase(turkishLocale) }
+        assertPrints(titlecase, "[A, ǅ, 1, +, Ss, I]")
+        assertPrints(titlecaseTurkish, "[A, ǅ, 1, +, Ss, İ]")
     }
 
     @Sample

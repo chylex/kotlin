@@ -48,8 +48,10 @@ public actual inline fun Char.lowercase(): String = js("String.fromCharCode")(to
  */
 @SinceKotlin("1.4")
 @ExperimentalStdlibApi
-@kotlin.internal.InlineOnly
-public actual inline fun Char.uppercaseChar(): Char = js("String.fromCharCode")(toInt()).toUpperCase().charCodeAt(0).unsafeCast<Int>().toChar()
+public actual fun Char.uppercaseChar(): Char {
+    val uppercase = uppercase()
+    return if (uppercase.length > 1) this else uppercase[0]
+}
 
 /**
  * Converts this character to upper case using Unicode mapping rules of the invariant locale.

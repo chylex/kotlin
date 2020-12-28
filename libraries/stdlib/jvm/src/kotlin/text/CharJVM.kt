@@ -216,7 +216,11 @@ public inline fun Char.titlecaseChar(): Char = Character.toTitleCase(this)
 @SinceKotlin("1.4")
 @ExperimentalStdlibApi
 public fun Char.titlecase(): String {
-    return titlecaseChar().let { if (it != uppercaseChar()) it.toString() else uppercase() }
+    val uppercase = uppercase()
+    if (uppercase.length > 1) {
+        return uppercase[0] + uppercase.substring(1).lowercase()
+    }
+    return titlecaseChar().toString()
 }
 
 /**
@@ -232,7 +236,14 @@ public fun Char.titlecase(): String {
 @SinceKotlin("1.4")
 @ExperimentalStdlibApi
 public fun Char.titlecase(locale: Locale): String {
-    return titlecaseChar().let { if (it != uppercaseChar()) it.toString() else uppercase(locale) }
+    val localizedUppercase = uppercase(locale)
+    if (localizedUppercase.length > 1) {
+        return localizedUppercase[0] + localizedUppercase.substring(1).lowercase()
+    }
+    if (localizedUppercase != uppercase()) {
+        return localizedUppercase
+    }
+    return titlecaseChar().toString()
 }
 
 /**

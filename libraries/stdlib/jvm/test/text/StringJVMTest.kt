@@ -80,7 +80,8 @@ class StringJVMTest {
             assertEquals(expected, string.replaceFirstChar { if (it.isLowerCase()) it.titlecase() else it.toString() })
         }
         // Case mapping that results in multiple characters (validating Character.toUpperCase was not used).
-        testCapitalize("SSßß", "ßßß")
+        assertEquals("SSßß", "ßßß".capitalize())
+        assertEquals("Ssßß", "ßßß".replaceFirstChar { if (it.isLowerCase()) it.titlecase() else it.toString() })
 
         // Case mapping where title case is different than uppercase and so Character.toTitleCase is preferred.
         testCapitalize("ǲǳǳ", "ǳǳǳ")
@@ -111,7 +112,8 @@ class StringJVMTest {
         testCapitalizeLocale("Iii", "iii", Locale.US)
 
         // Case mapping that results in multiple characters (validating Character.toUpperCase was not used).
-        testCapitalizeLocale("SSßß", "ßßß", Locale.US)
+        assertEquals("SSßß", "ßßß".capitalize(Locale.US))
+        assertEquals("Ssßß", "ßßß".replaceFirstChar { if (it.isLowerCase()) it.titlecase(Locale.US) else it.toString() })
 
         // Case mapping where title case is different than uppercase and so Character.toTitleCase is preferred.
         testCapitalizeLocale("ǲǳǳ", "ǳǳǳ", Locale.US)

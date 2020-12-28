@@ -268,6 +268,9 @@ public expect fun String.toUpperCase(): String
 /**
  * Returns a copy of this string converted to upper case using Unicode mapping rules of the invariant locale.
  *
+ * This function supports one-to-many and many-to-one character mapping that is described in SpecialCasing.txt file,
+ * thus the length of the returned string can be different from the length of the original string.
+ *
  * @sample samples.text.Strings.uppercase
  */
 @SinceKotlin("1.4")
@@ -281,6 +284,9 @@ public expect fun String.toLowerCase(): String
 
 /**
  * Returns a copy of this string converted to lower case using Unicode mapping rules of the invariant locale.
+ *
+ * This function supports one-to-many and many-to-one character mapping that is described in SpecialCasing.txt file,
+ * thus the length of the returned string can be different from the length of the original string.
  *
  * @sample samples.text.Strings.lowercase
  */

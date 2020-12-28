@@ -104,7 +104,10 @@ public actual inline fun Char.uppercaseChar(): Char = Character.toUpperCase(this
 /**
  * Converts this character to upper case using Unicode mapping rules of the invariant locale.
  *
- * If this character has no mapping equivalent, a [String] equal to [Char.toString] is returned.
+ * This function supports one-to-many character mapping that is described in SpecialCasing.txt file,
+ * thus the length of the returned string can be greater than one. For example, `'\u00DF'.uppercase()` returns `"\u0053\u0053"`,
+ * where `'\u00DF'` is the LATIN SMALL LETTER SHARP S character (`ß`).
+ * If this character has no upper case mapping, a [String] equal to [Char.toString] is returned.
  *
  * @sample samples.text.Chars.uppercase
  */
@@ -116,9 +119,12 @@ public actual inline fun Char.uppercase(): String = toString().uppercase()
 /**
  * Converts this character to upper case using Unicode mapping rules of the specified [locale].
  *
- * If this character has no mapping equivalent, a [String] equal to [Char.toString] is returned.
+ * This function supports one-to-many character mapping that is described in SpecialCasing.txt file,
+ * thus the length of the returned string can be greater than one. For example, `'\u00DF'.uppercase(Locale.US)` returns `"\u0053\u0053"`,
+ * where `'\u00DF'` is the LATIN SMALL LETTER SHARP S character (`ß`).
+ * If this character has no upper case mapping, a [String] equal to [Char.toString] is returned.
  *
- * @sample samples.text.Chars.uppercase
+ * @sample samples.text.Chars.uppercaseLocale
  */
 @SinceKotlin("1.4")
 @ExperimentalStdlibApi
@@ -142,7 +148,10 @@ public actual inline fun Char.lowercaseChar(): Char = Character.toLowerCase(this
 /**
  * Converts this character to lower case using Unicode mapping rules of the invariant locale.
  *
- * If this character has no mapping equivalent, a [String] equal to [Char.toString] is returned.
+ * This function supports one-to-many character mapping that is described in SpecialCasing.txt file,
+ * thus the length of the returned string can be greater than one. For example, `'\u0130'.lowercase()` returns `"\u0069\u0307"`,
+ * where `'\u0130'` is the LATIN CAPITAL LETTER I WITH DOT ABOVE character (`İ`).
+ * If this character has no lower case mapping, a [String] equal to [Char.toString] is returned.
  *
  * @sample samples.text.Chars.lowercase
  */
@@ -154,9 +163,12 @@ public actual inline fun Char.lowercase(): String = toString().lowercase()
 /**
  * Converts this character to lower case using Unicode mapping rules of the specified [locale].
  *
- * If this character has no mapping equivalent, a [String] equal to [Char.toString] is returned.
+ * This function supports one-to-many character mapping that is described in SpecialCasing.txt file,
+ * thus the length of the returned string can be greater than one. For example, `'\u0130'.lowercase(Locale.US)` returns `"\u0069\u0307"`,
+ * where `'\u0130'` is the LATIN CAPITAL LETTER I WITH DOT ABOVE character (`İ`).
+ * If this character has no lower case mapping, a [String] equal to [Char.toString] is returned.
  *
- * @sample samples.text.Chars.lowercase
+ * @sample samples.text.Chars.lowercaseLocale
  */
 @SinceKotlin("1.4")
 @ExperimentalStdlibApi
@@ -196,7 +208,10 @@ public inline fun Char.titlecaseChar(): Char = Character.toTitleCase(this)
 /**
  * Converts this character to title case using Unicode mapping rules of the invariant locale.
  *
- * If this character has no mapping equivalent, the result of calling [uppercase] is returned.
+ * This function supports one-to-many character mapping that is described in SpecialCasing.txt file,
+ * thus the length of the returned string can be greater than one. For example, `'\u00DF'.titlecase()` returns `"\u0053\u0073"`,
+ * where `'\u00DF'` is the LATIN SMALL LETTER SHARP S character (`ß`).
+ * If this character has no title case mapping, the result of [uppercase] is returned instead.
  *
  * @sample samples.text.Chars.titlecase
  */
@@ -210,9 +225,12 @@ public fun Char.titlecase(): String {
 /**
  * Converts this character to title case using Unicode mapping rules of the specified [locale].
  *
- * If this character has no mapping equivalent, the result of calling [uppercase] is returned.
+ * This function supports one-to-many character mapping that is described in SpecialCasing.txt file,
+ * thus the length of the returned string can be greater than one. For example, `'\u00DF'.titlecase(Locale.US)` returns `"\u0053\u0073"`,
+ * where `'\u00DF'` is the LATIN SMALL LETTER SHARP S character (`ß`).
+ * If this character has no title case mapping, the result of `uppercase(locale)` is returned instead.
  *
- * @sample samples.text.Chars.titlecase
+ * @sample samples.text.Chars.titlecaseLocale
  */
 @SinceKotlin("1.4")
 @ExperimentalStdlibApi

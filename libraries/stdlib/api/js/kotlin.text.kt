@@ -1120,8 +1120,7 @@ public inline fun kotlin.String.uppercase(): kotlin.String
 
 @kotlin.SinceKotlin(version = "1.4")
 @kotlin.ExperimentalStdlibApi
-@kotlin.internal.InlineOnly
-public inline fun kotlin.Char.uppercaseChar(): kotlin.Char
+public fun kotlin.Char.uppercaseChar(): kotlin.Char
 
 @kotlin.SinceKotlin(version = "1.2")
 public fun kotlin.CharSequence.windowed(size: kotlin.Int, step: kotlin.Int = ..., partialWindows: kotlin.Boolean = ...): kotlin.collections.List<kotlin.String>

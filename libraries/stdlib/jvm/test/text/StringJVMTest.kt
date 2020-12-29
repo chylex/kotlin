@@ -77,7 +77,7 @@ class StringJVMTest {
     @Test fun capitalize() {
         fun testCapitalize(expected: String, string: String) {
             assertEquals(expected, string.capitalize())
-            assertEquals(expected, string.replaceFirstChar { if (it.isLowerCase()) it.titlecase() else it.toString() })
+            assertEquals(expected, string.replaceFirstChar { if (it.isLowerCase()) it.titlecase(Locale.getDefault()) else it.toString() })
         }
         // Case mapping that results in multiple characters (validating Character.toUpperCase was not used).
         assertEquals("SSßß", "ßßß".capitalize())
@@ -91,7 +91,7 @@ class StringJVMTest {
     @Test fun decapitalize() {
         fun testDecapitalize(expected: String, string: String) {
             assertEquals(expected, string.decapitalize())
-            assertEquals(expected, string.replaceFirstChar { it.lowercase() })
+            assertEquals(expected, string.replaceFirstChar { it.lowercase(Locale.getDefault()) })
         }
         // Case mapping where title case is different than uppercase.
         testDecapitalize("ǳǳǳ", "Ǳǳǳ")

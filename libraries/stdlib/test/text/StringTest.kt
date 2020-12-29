@@ -1457,7 +1457,7 @@ class StringTest {
         assertEquals("[v-e-r-y-l-o-n-g-s-t-r-oops]", result2)
 
         val data3 = "a1/b".toList()
-        val result3 = data3.joinToString() { it.uppercaseChar().toString() }
+        val result3 = data3.joinToString() { it.uppercase() }
         assertEquals("A, 1, /, B", result3)
     }
 

@@ -1,6 +1,7 @@
 package samples.text
 
 import samples.*
+import java.util.Locale
 import kotlin.test.*
 
 class Strings {
@@ -219,8 +220,22 @@ class Strings {
     }
 
     @Sample
+    fun lowercaseLocale() {
+        assertPrints("KOTLİN".lowercase(), "kotl\u0069\u0307n")
+        val turkishLocale = Locale.forLanguageTag("tr")
+        assertPrints("KOTLİN".lowercase(turkishLocale), "kotlin")
+    }
+
+    @Sample
     fun uppercase() {
         assertPrints("Iced frappé!".uppercase(), "ICED FRAPPÉ!")
+    }
+
+    @Sample
+    fun uppercaseLocale() {
+        assertPrints("Kotlin".uppercase(), "KOTLIN")
+        val turkishLocale = Locale.forLanguageTag("tr")
+        assertPrints("Kotlin".uppercase(turkishLocale), "KOTLİN")
     }
 
     @Sample

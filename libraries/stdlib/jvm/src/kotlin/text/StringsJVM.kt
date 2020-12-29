@@ -615,7 +615,12 @@ public fun String.regionMatches(thisOffset: Int, other: String, otherOffset: Int
 public inline fun String.toLowerCase(locale: java.util.Locale): String = lowercase(locale)
 
 /**
- * Returns a copy of this string converted to lower case using the rules of the specified locale.
+ * Returns a copy of this string converted to lower case using the rules of the specified [locale].
+ *
+ * This function supports one-to-many and many-to-one character mapping that is described in SpecialCasing.txt file,
+ * thus the length of the returned string can be different from the length of the original string.
+ *
+ * @sample samples.text.Strings.lowercaseLocale
  */
 @SinceKotlin("1.4")
 @ExperimentalStdlibApi
@@ -630,7 +635,12 @@ public inline fun String.lowercase(locale: Locale): String = (this as java.lang.
 public inline fun String.toUpperCase(locale: java.util.Locale): String = uppercase(locale)
 
 /**
- * Returns a copy of this string converted to upper case using the rules of the specified locale.
+ * Returns a copy of this string converted to upper case using the rules of the specified [locale].
+ *
+ * This function supports one-to-many and many-to-one character mapping that is described in SpecialCasing.txt file,
+ * thus the length of the returned string can be different from the length of the original string.
+ *
+ * @sample samples.text.Strings.uppercaseLocale
  */
 @SinceKotlin("1.4")
 @ExperimentalStdlibApi

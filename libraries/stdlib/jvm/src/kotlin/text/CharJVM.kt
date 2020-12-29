@@ -107,7 +107,7 @@ public actual inline fun Char.uppercaseChar(): Char = Character.toUpperCase(this
  * This function supports one-to-many character mapping that is described in SpecialCasing.txt file,
  * thus the length of the returned string can be greater than one. For example, `'\u00DF'.uppercase()` returns `"\u0053\u0053"`,
  * where `'\u00DF'` is the LATIN SMALL LETTER SHARP S character (`ß`).
- * If this character has no upper case mapping, a [String] equal to [Char.toString] is returned.
+ * If this character has no upper case mapping, the result of `toString()` of this char is returned.
  *
  * @sample samples.text.Chars.uppercase
  */
@@ -122,7 +122,7 @@ public actual inline fun Char.uppercase(): String = toString().uppercase()
  * This function supports one-to-many character mapping that is described in SpecialCasing.txt file,
  * thus the length of the returned string can be greater than one. For example, `'\u00DF'.uppercase(Locale.US)` returns `"\u0053\u0053"`,
  * where `'\u00DF'` is the LATIN SMALL LETTER SHARP S character (`ß`).
- * If this character has no upper case mapping, a [String] equal to [Char.toString] is returned.
+ * If this character has no upper case mapping, the result of `toString()` of this char is returned.
  *
  * @sample samples.text.Chars.uppercaseLocale
  */
@@ -150,7 +150,7 @@ public actual inline fun Char.lowercaseChar(): Char = Character.toLowerCase(this
  * This function supports one-to-many character mapping that is described in SpecialCasing.txt file,
  * thus the length of the returned string can be greater than one. For example, `'\u0130'.lowercase()` returns `"\u0069\u0307"`,
  * where `'\u0130'` is the LATIN CAPITAL LETTER I WITH DOT ABOVE character (`İ`).
- * If this character has no lower case mapping, a [String] equal to [Char.toString] is returned.
+ * If this character has no lower case mapping, the result of `toString()` of this char is returned.
  *
  * @sample samples.text.Chars.lowercase
  */
@@ -165,7 +165,7 @@ public actual inline fun Char.lowercase(): String = toString().lowercase()
  * This function supports one-to-many character mapping that is described in SpecialCasing.txt file,
  * thus the length of the returned string can be greater than one. For example, `'\u0130'.lowercase(Locale.US)` returns `"\u0069\u0307"`,
  * where `'\u0130'` is the LATIN CAPITAL LETTER I WITH DOT ABOVE character (`İ`).
- * If this character has no lower case mapping, a [String] equal to [Char.toString] is returned.
+ * If this character has no lower case mapping, the result of `toString()` of this char is returned.
  *
  * @sample samples.text.Chars.lowercaseLocale
  */

@@ -105,8 +105,8 @@ public actual inline fun Char.uppercaseChar(): Char = Character.toUpperCase(this
  * Converts this character to upper case using Unicode mapping rules of the invariant locale.
  *
  * This function supports one-to-many character mapping, thus the length of the returned string can be greater than one.
- * For example, `'\u00DF'.uppercase()` returns `"\u0053\u0053"`,
- * where `'\u00DF'` is the LATIN SMALL LETTER SHARP S character (`ß`).
+ * For example, `'\uFB00'.uppercase()` returns `"\u0046\u0046"`,
+ * where `'\uFB00'` is the LATIN SMALL LIGATURE FF character (`ﬀ`).
  * If this character has no upper case mapping, the result of `toString()` of this char is returned.
  *
  * @sample samples.text.Chars.uppercase
@@ -120,8 +120,8 @@ public actual inline fun Char.uppercase(): String = toString().uppercase()
  * Converts this character to upper case using Unicode mapping rules of the specified [locale].
  *
  * This function supports one-to-many character mapping, thus the length of the returned string can be greater than one.
- * For example, `'\u00DF'.uppercase(Locale.US)` returns `"\u0053\u0053"`,
- * where `'\u00DF'` is the LATIN SMALL LETTER SHARP S character (`ß`).
+ * For example, `'\uFB00'.uppercase(Locale.US)` returns `"\u0046\u0046"`,
+ * where `'\uFB00'` is the LATIN SMALL LIGATURE FF character (`ﬀ`).
  * If this character has no upper case mapping, the result of `toString()` of this char is returned.
  *
  * @sample samples.text.Chars.uppercaseLocale
@@ -207,8 +207,8 @@ public inline fun Char.titlecaseChar(): Char = Character.toTitleCase(this)
  * Converts this character to title case using Unicode mapping rules of the invariant locale.
  *
  * This function supports one-to-many character mapping, thus the length of the returned string can be greater than one.
- * For example, `'\u00DF'.titlecase()` returns `"\u0053\u0073"`,
- * where `'\u00DF'` is the LATIN SMALL LETTER SHARP S character (`ß`).
+ * For example, `'\uFB00'.titlecase()` returns `"\u0046\u0066"`,
+ * where `'\uFB00'` is the LATIN SMALL LIGATURE FF character (`ﬀ`).
  * If this character has no title case mapping, the result of [uppercase] is returned instead.
  *
  * @sample samples.text.Chars.titlecase
@@ -227,8 +227,8 @@ public fun Char.titlecase(): String {
  * Converts this character to title case using Unicode mapping rules of the specified [locale].
  *
  * This function supports one-to-many character mapping, thus the length of the returned string can be greater than one.
- * For example, `'\u00DF'.titlecase(Locale.US)` returns `"\u0053\u0073"`,
- * where `'\u00DF'` is the LATIN SMALL LETTER SHARP S character (`ß`).
+ * For example, `'\uFB00'.titlecase(Locale.US)` returns `"\u0046\u0066"`,
+ * where `'\uFB00'` is the LATIN SMALL LIGATURE FF character (`ﬀ`).
  * If this character has no title case mapping, the result of `uppercase(locale)` is returned instead.
  *
  * @sample samples.text.Chars.titlecaseLocale

@@ -66,8 +66,8 @@ public expect fun Char.uppercaseChar(): Char
  * Converts this character to upper case using Unicode mapping rules of the invariant locale.
  *
  * This function supports one-to-many character mapping, thus the length of the returned string can be greater than one.
- * For example, `'\u00DF'.uppercase()` returns `"\u0053\u0053"`,
- * where `'\u00DF'` is the LATIN SMALL LETTER SHARP S character (`ß`).
+ * For example, `'\uFB00'.uppercase()` returns `"\u0046\u0046"`,
+ * where `'\uFB00'` is the LATIN SMALL LIGATURE FF character (`ﬀ`).
  * If this character has no upper case mapping, the result of `toString()` of this char is returned.
  *
  * @sample samples.text.Chars.uppercase

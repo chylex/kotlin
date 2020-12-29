@@ -127,7 +127,7 @@ public actual inline fun String.toUpperCase(): String = (this as java.lang.Strin
 /**
  * Returns a copy of this string converted to upper case using Unicode mapping rules of the invariant locale.
  *
- * This function supports one-to-many and many-to-one character mapping that is described in SpecialCasing.txt file,
+ * This function supports one-to-many and many-to-one character mapping,
  * thus the length of the returned string can be different from the length of the original string.
  *
  * @sample samples.text.Strings.uppercase
@@ -146,7 +146,7 @@ public actual inline fun String.toLowerCase(): String = (this as java.lang.Strin
 /**
  * Returns a copy of this string converted to lower case using Unicode mapping rules of the invariant locale.
  *
- * This function supports one-to-many and many-to-one character mapping that is described in SpecialCasing.txt file,
+ * This function supports one-to-many and many-to-one character mapping,
  * thus the length of the returned string can be different from the length of the original string.
  *
  * @sample samples.text.Strings.lowercase
@@ -617,7 +617,7 @@ public inline fun String.toLowerCase(locale: java.util.Locale): String = lowerca
 /**
  * Returns a copy of this string converted to lower case using the rules of the specified [locale].
  *
- * This function supports one-to-many and many-to-one character mapping that is described in SpecialCasing.txt file,
+ * This function supports one-to-many and many-to-one character mapping,
  * thus the length of the returned string can be different from the length of the original string.
  *
  * @sample samples.text.Strings.lowercaseLocale
@@ -637,7 +637,7 @@ public inline fun String.toUpperCase(locale: java.util.Locale): String = upperca
 /**
  * Returns a copy of this string converted to upper case using the rules of the specified [locale].
  *
- * This function supports one-to-many and many-to-one character mapping that is described in SpecialCasing.txt file,
+ * This function supports one-to-many and many-to-one character mapping,
  * thus the length of the returned string can be different from the length of the original string.
  *
  * @sample samples.text.Strings.uppercaseLocale

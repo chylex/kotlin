@@ -90,8 +90,8 @@ public inline fun Char.isLowerCase(): Boolean = Character.isLowerCase(this)
 /**
  * Converts this character to upper case using Unicode mapping rules of the invariant locale.
  *
- * This function performs one-to-one character mapping using case mapping information from the UnicodeData.txt file,
- * to support one-to-many character mapping use the [uppercase] function.
+ * This function performs one-to-one character mapping.
+ * To support one-to-many character mapping use the [uppercase] function.
  * If this character has no mapping equivalent, the character itself is returned.
  *
  * @sample samples.text.Chars.uppercase
@@ -133,8 +133,8 @@ public fun Char.uppercase(locale: Locale): String = toString().uppercase(locale)
 /**
  * Converts this character to lower case using Unicode mapping rules of the invariant locale.
  *
- * This function performs one-to-one character mapping using case mapping information from the UnicodeData.txt file,
- * to support one-to-many character mapping use the [lowercase] function.
+ * This function performs one-to-one character mapping.
+ * To support one-to-many character mapping use the [lowercase] function.
  * If this character has no mapping equivalent, the character itself is returned.
  *
  * @sample samples.text.Chars.lowercase
@@ -192,8 +192,8 @@ public inline fun Char.toTitleCase(): Char = titlecaseChar()
 /**
  * Converts this character to title case using Unicode mapping rules of the invariant locale.
  *
- * This function performs one-to-one character mapping using case mapping information from the UnicodeData.txt file,
- * to support one-to-many character mapping use the [titlecase] function.
+ * This function performs one-to-one character mapping.
+ * To support one-to-many character mapping use the [titlecase] function.
  * If this character has no mapping equivalent, the result of calling [uppercaseChar] is returned.
  *
  * @sample samples.text.Chars.titlecase

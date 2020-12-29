@@ -9,7 +9,6 @@
 package kotlin.text
 
 import kotlin.contracts.contract
-import kotlin.internal.LowPriorityInOverloadResolution
 import kotlin.jvm.JvmName
 
 /**

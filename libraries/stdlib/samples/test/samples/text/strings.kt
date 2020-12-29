@@ -20,11 +20,11 @@ class Strings {
 
     @Sample
     fun replaceFirstChar() {
-        assertPrints("kotlin".replaceFirstChar { it.uppercaseChar() }, "Kotlin")
+        assertPrints("kotlin".replaceFirstChar { it.uppercase() }, "Kotlin")
 
         val sentence = "Welcome to Kotlin!"
         val words = sentence.split(' ');
-        assertPrints(words.joinToString(separator = "_") { word -> word.replaceFirstChar { it.lowercaseChar() } }, "welcome_to_kotlin!")
+        assertPrints(words.joinToString(separator = "_") { word -> word.replaceFirstChar { it.lowercase() } }, "welcome_to_kotlin!")
     }
 
     @Sample

@@ -8,7 +8,7 @@
 
 package kotlin.text
 
-import java.util.*
+import java.util.Locale
 
 /**
  * Returns `true` if this character (Unicode code point) is defined in Unicode.

@@ -130,21 +130,21 @@ class Chars {
 
     @Sample
     fun titlecase() {
-        val chars = listOf('a', 'ǅ', '1', '+', 'ß')
+        val chars = listOf('a', 'ǅ', 'ŉ', '+', 'ß')
         val titlecaseChar = chars.map { it.titlecaseChar() }
         val titlecase = chars.map { it.titlecase() }
-        assertPrints(titlecaseChar, "[A, ǅ, 1, +, ß]")
-        assertPrints(titlecase, "[A, ǅ, 1, +, Ss]")
+        assertPrints(titlecaseChar, "[A, ǅ, ŉ, +, ß]")
+        assertPrints(titlecase, "[A, ǅ, ʼN, +, Ss]")
     }
 
     @Sample
     fun titlecaseLocale() {
-        val chars = listOf('a', 'ǅ', '1', '+', 'ß', 'i')
+        val chars = listOf('a', 'ǅ', 'ŉ', '+', 'ß', 'i')
         val titlecase = chars.map { it.titlecase() }
         val turkishLocale = Locale.forLanguageTag("tr")
         val titlecaseTurkish = chars.map { it.titlecase(turkishLocale) }
-        assertPrints(titlecase, "[A, ǅ, 1, +, Ss, I]")
-        assertPrints(titlecaseTurkish, "[A, ǅ, 1, +, Ss, İ]")
+        assertPrints(titlecase, "[A, ǅ, ʼN, +, Ss, I]")
+        assertPrints(titlecaseTurkish, "[A, ǅ, ʼN, +, Ss, İ]")
     }
 
     @Sample

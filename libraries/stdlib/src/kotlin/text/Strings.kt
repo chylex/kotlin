@@ -13,6 +13,59 @@ import kotlin.internal.LowPriorityInOverloadResolution
 import kotlin.jvm.JvmName
 
 /**
+ * Returns a copy of this string converted to upper case using the rules of the default locale.
+ */
+public expect fun String.toUpperCase(): String
+
+/**
+ * Returns a copy of this string converted to upper case using Unicode mapping rules of the invariant locale.
+ *
+ * This function supports one-to-many and many-to-one character mapping that is described in SpecialCasing.txt file,
+ * thus the length of the returned string can be different from the length of the original string.
+ *
+ * @sample samples.text.Strings.uppercase
+ */
+@SinceKotlin("1.4")
+@ExperimentalStdlibApi
+public expect fun String.uppercase(): String
+
+/**
+ * Returns a copy of this string converted to lower case using the rules of the default locale.
+ */
+public expect fun String.toLowerCase(): String
+
+/**
+ * Returns a copy of this string converted to lower case using Unicode mapping rules of the invariant locale.
+ *
+ * This function supports one-to-many and many-to-one character mapping that is described in SpecialCasing.txt file,
+ * thus the length of the returned string can be different from the length of the original string.
+ *
+ * @sample samples.text.Strings.lowercase
+ */
+@SinceKotlin("1.4")
+@ExperimentalStdlibApi
+public expect fun String.lowercase(): String
+
+/**
+ * Returns a copy of this string having its first letter titlecased using the rules of the default locale,
+ * or the original string if it's empty or already starts with a title case letter.
+ *
+ * The title case of a character is usually the same as its upper case with several exceptions.
+ * The particular list of characters with the special title case form depends on the underlying platform.
+ *
+ * @sample samples.text.Strings.capitalize
+ */
+public expect fun String.capitalize(): String
+
+/**
+ * Returns a copy of this string having its first letter lowercased using the rules of the default locale,
+ * or the original string if it's empty or already starts with a lower case letter.
+ *
+ * @sample samples.text.Strings.decapitalize
+ */
+public expect fun String.decapitalize(): String
+
+/**
  * Returns a sub sequence of this char sequence having leading and trailing characters matching the [predicate] removed.
  */
 public inline fun CharSequence.trim(predicate: (Char) -> Boolean): CharSequence {

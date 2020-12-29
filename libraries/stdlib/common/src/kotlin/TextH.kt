@@ -64,75 +64,6 @@ expect enum class RegexOption {
 // From char.kt
 
 expect fun Char.isWhitespace(): Boolean
-
-/**
- * Converts this character to lower case using Unicode mapping rules of the invariant locale.
- */
-@OptIn(ExperimentalStdlibApi::class)
-@kotlin.internal.InlineOnly
-public inline fun Char.toLowerCase(): Char = lowercaseChar()
-
-/**
- * Converts this character to lower case using Unicode mapping rules of the invariant locale.
- *
- * This function performs one-to-one character mapping using case mapping information from the UnicodeData.txt file,
- * to support one-to-many character mapping use the [lowercase] function.
- * If this character has no mapping equivalent, the character itself is returned.
- *
- * @sample samples.text.Chars.lowercase
- */
-@SinceKotlin("1.4")
-@ExperimentalStdlibApi
-public expect fun Char.lowercaseChar(): Char
-
-/**
- * Converts this character to lower case using Unicode mapping rules of the invariant locale.
- *
- * This function supports one-to-many character mapping that is described in SpecialCasing.txt file,
- * thus the length of the returned string can be greater than one. For example, `'\u0130'.lowercase()` returns `"\u0069\u0307"`,
- * where `'\u0130'` is the LATIN CAPITAL LETTER I WITH DOT ABOVE character (`İ`).
- * If this character has no lower case mapping, a [String] equal to [Char.toString] is returned.
- *
- * @sample samples.text.Chars.lowercase
- */
-@SinceKotlin("1.4")
-@ExperimentalStdlibApi
-public expect fun Char.lowercase(): String
-
-/**
- * Converts this character to upper case using Unicode mapping rules of the invariant locale.
- */
-@OptIn(ExperimentalStdlibApi::class)
-@kotlin.internal.InlineOnly
-public inline fun Char.toUpperCase(): Char = uppercaseChar()
-
-/**
- * Converts this character to upper case using Unicode mapping rules of the invariant locale.
- *
- * This function performs one-to-one character mapping using case mapping information from the UnicodeData.txt file,
- * to support one-to-many character mapping use the [uppercase] function.
- * If this character has no mapping equivalent, the character itself is returned.
- *
- * @sample samples.text.Chars.uppercase
- */
-@SinceKotlin("1.4")
-@ExperimentalStdlibApi
-public expect fun Char.uppercaseChar(): Char
-
-/**
- * Converts this character to upper case using Unicode mapping rules of the invariant locale.
- *
- * This function supports one-to-many character mapping that is described in SpecialCasing.txt file,
- * thus the length of the returned string can be greater than one. For example, `'\u00DF'.uppercase()` returns `"\u0053\u0053"`,
- * where `'\u00DF'` is the LATIN SMALL LETTER SHARP S character (`ß`).
- * If this character has no upper case mapping, a [String] equal to [Char.toString] is returned.
- *
- * @sample samples.text.Chars.uppercase
- */
-@SinceKotlin("1.4")
-@ExperimentalStdlibApi
-public expect fun Char.uppercase(): String
-
 expect fun Char.isHighSurrogate(): Boolean
 expect fun Char.isLowSurrogate(): Boolean
 
@@ -259,59 +190,6 @@ internal expect fun String.nativeLastIndexOf(str: String, fromIndex: Int): Int
 
 public expect fun String.substring(startIndex: Int): String
 public expect fun String.substring(startIndex: Int, endIndex: Int): String
-
-/**
- * Returns a copy of this string converted to upper case using the rules of the default locale.
- */
-public expect fun String.toUpperCase(): String
-
-/**
- * Returns a copy of this string converted to upper case using Unicode mapping rules of the invariant locale.
- *
- * This function supports one-to-many and many-to-one character mapping that is described in SpecialCasing.txt file,
- * thus the length of the returned string can be different from the length of the original string.
- *
- * @sample samples.text.Strings.uppercase
- */
-@SinceKotlin("1.4")
-@ExperimentalStdlibApi
-public expect fun String.uppercase(): String
-
-/**
- * Returns a copy of this string converted to lower case using the rules of the default locale.
- */
-public expect fun String.toLowerCase(): String
-
-/**
- * Returns a copy of this string converted to lower case using Unicode mapping rules of the invariant locale.
- *
- * This function supports one-to-many and many-to-one character mapping that is described in SpecialCasing.txt file,
- * thus the length of the returned string can be different from the length of the original string.
- *
- * @sample samples.text.Strings.lowercase
- */
-@SinceKotlin("1.4")
-@ExperimentalStdlibApi
-public expect fun String.lowercase(): String
-
-/**
- * Returns a copy of this string having its first letter titlecased using the rules of the default locale,
- * or the original string if it's empty or already starts with a title case letter.
- *
- * The title case of a character is usually the same as its upper case with several exceptions.
- * The particular list of characters with the special title case form depends on the underlying platform.
- *
- * @sample samples.text.Strings.capitalize
- */
-public expect fun String.capitalize(): String
-
-/**
- * Returns a copy of this string having its first letter lowercased using the rules of the default locale,
- * or the original string if it's empty or already starts with a lower case letter.
- *
- * @sample samples.text.Strings.decapitalize
- */
-public expect fun String.decapitalize(): String
 
 public expect fun CharSequence.repeat(n: Int): String
 

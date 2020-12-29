@@ -217,7 +217,7 @@ public inline fun Char.titlecaseChar(): Char = Character.toTitleCase(this)
 @ExperimentalStdlibApi
 public fun Char.titlecase(): String {
     val uppercase = uppercase()
-    if (uppercase.length > 1) {
+    if (uppercase.length > 1 && this != '\u0149') {
         return uppercase[0] + uppercase.substring(1).lowercase()
     }
     return titlecaseChar().toString()
@@ -237,7 +237,7 @@ public fun Char.titlecase(): String {
 @ExperimentalStdlibApi
 public fun Char.titlecase(locale: Locale): String {
     val localizedUppercase = uppercase(locale)
-    if (localizedUppercase.length > 1) {
+    if (localizedUppercase.length > 1 && this != '\u0149') {
         return localizedUppercase[0] + localizedUppercase.substring(1).lowercase()
     }
     if (localizedUppercase != uppercase()) {
